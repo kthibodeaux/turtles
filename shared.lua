@@ -28,11 +28,13 @@ local function forward(count)
   end
 end
 
-local function digAndMoveForward(count)
+local function digAndMoveForward(count, isDigUp, isDigDown)
   local count = count or 1
 
   for i = 1, count, 1 do
     dig()
+    if isDigUp then digUp() end
+    if isDigDown then digDown() end
     forward()
   end
 end
