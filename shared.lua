@@ -50,6 +50,12 @@ local function digTunnel(depth, isDigUp, isDigDown)
   end
 end
 
+local function selectNextSlotWithItem()
+  if not (turtle.getItemCount() > 0) then
+    turtle.select(turtle.getSelectedSlot() + 1)
+  end
+end
+
 return {
   dig = dig,
   digAndMoveForward = digAndMoveForward,
@@ -57,5 +63,6 @@ return {
   digTunnel = digTunnel,
   digUp = digUp,
   forward = forward,
+  selectNextSlotWithItem = selectNextSlotWithItem,
   turnAround = turnAround
 }
