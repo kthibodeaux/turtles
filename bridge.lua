@@ -1,10 +1,20 @@
+local kt = require("shared")
+
+local args = {...}
+local distance = tonumber(args[1]) or 0
+
 turtle.forward()
 
-while not turtle.detectDown() do
-  if not (turtle.getItemCount() > 0) then
-    turtle.select(turtle.getSelectedSlot() + 1)
+if distance > 0 then
+  for i = 1, distance, 1 do
+    kt.selectNextSlotWithItem()
+    turtle.placeDown()
+    turtle.forward()
   end
-
-  turtle.placeDown()
-  turtle.forward()
+else
+  while not turtle.detectDown() do
+    kt.selectNextSlotWithItem()
+    turtle.placeDown()
+    turtle.forward()
+  end
 end
