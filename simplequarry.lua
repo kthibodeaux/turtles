@@ -57,3 +57,11 @@ for currentDepth = 1, depth, 1 do
   changeElevation()
   kt.turnAround()
 end
+
+for i = 1, depth, 1 do
+  if upordown == "down" then
+    turtle.up()
+  else
+    turtle.down()
+  end
+end
